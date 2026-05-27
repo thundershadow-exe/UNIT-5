@@ -8,16 +8,20 @@ final int GAMEOVER = 3;
 // --- TARGET VARIABLES ---
 float x, y, d;
 float vx, vy;    // target velocity
+int score, lives;
 
 void setup(){
   size(800,800);
   mode = INTRO;
+  
     //target initialization
     x = width/2;
     y = height/2;
     d = 100;
-    vx = random (-5, 5);
-    vy = random (-5, 5);
+    vx = random (-7, 7);
+    vy = random (-7, 7);
+    score = 0;
+    lives = 3;
     
   textAlign(CENTER, CENTER);
   
