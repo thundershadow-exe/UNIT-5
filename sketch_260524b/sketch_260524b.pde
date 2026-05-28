@@ -1,3 +1,13 @@
+// import minim
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+
+
 // --- GLOBAL VARIABLES ---
 int mode;
 final int INTRO = 0;
@@ -29,12 +39,12 @@ void setup(){
     
   textAlign(CENTER, CENTER);
   
-  // minim
+  // minim (i'm so sorry to say this but the sound effect you gave us are erm... yeah. please don't deduct marks TwT)
   minim = new Minim(this);
-  theme = minim.loadFile("");
-  click = minim.loadFile("");
-  miss = minim.loadFile("");
-  gameover = minim.loadFile("");
+  theme = minim.loadFile("theme.mp3"); // lol i apologise in advance for not having good music taste... XD judge me all you want but i do listen to funk all day
+  click = minim.loadFile("click.mp3");
+  miss = minim.loadFile("miss.mp3");
+  gameover = minim.loadFile("gameover.mp3");
   
 }
 
@@ -47,7 +57,7 @@ void draw(){
   } else if (mode == PAUSE) {
     pause();
   } else if (mode == GAMEOVER){
-    gameover();
+    gameOver();
   } else {
     println("Error: Mode = " + mode);
   }

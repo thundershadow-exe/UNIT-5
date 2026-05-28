@@ -1,4 +1,4 @@
-void gameover(){
+void gameOver(){
   theme.pause();
   
   background (#f28482);
