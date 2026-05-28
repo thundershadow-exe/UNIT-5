@@ -10,6 +10,10 @@ float x, y, d;
 float vx, vy;    // target velocity
 int score, lives;
 
+// --- SOUND VARIABLES ---
+Minim minim;
+AudioPlayer theme, click, miss, gameover;
+
 void setup(){
   size(800,800);
   mode = INTRO;
@@ -24,6 +28,13 @@ void setup(){
     lives = 3;
     
   textAlign(CENTER, CENTER);
+  
+  // minim
+  minim = new Minim(this);
+  theme = minim.loadFile("");
+  click = minim.loadFile("");
+  miss = minim.loadFile("");
+  gameover = minim.loadFile("");
   
 }
 

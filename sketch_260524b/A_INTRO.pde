@@ -1,4 +1,6 @@
 void intro(){
+ theme.play();
+ 
   background(#f4a261);
   
     // Title

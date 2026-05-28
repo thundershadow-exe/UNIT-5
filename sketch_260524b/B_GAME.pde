@@ -23,8 +23,12 @@ void game(){
 void gameClicks(){
   if (dist(mouseX, mouseY, x, y) < 100){
     score = score +1;
+    click.rewind();
+    click.play();
   } else {
     lives = lives -1;
+    miss.rewind();
+    miss.play();
     if (lives == 0) mode = GAMEOVER;
   }
 }
