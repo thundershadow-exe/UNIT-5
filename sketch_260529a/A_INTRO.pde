@@ -1,8 +1,8 @@
 void intro(){
- theme.play();
  
   background(#f4a261);
   
+ 
     // Title
   fill(255);
   textSize(70);
