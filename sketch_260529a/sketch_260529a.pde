@@ -8,10 +8,13 @@ final int GAMEOVER = 3;
 // --- ENTITY VARIABLES ---
 float leftx, lefty, leftd, rightx, righty, rightd; // paddles
 float ballx, bally, balld; // ball
+float vx, vy;
 
 // keyboard variables
 boolean wkey, skey, upkey, downkey;
 
+// radii variables
+ float leftr, rightr, ballr;
 
 void setup(){
   size(800,800);
@@ -30,6 +33,8 @@ void setup(){
     ballx = width/2;
     bally = height/2;
     balld = 100;
+    vx = 5;
+    vy = 3;
     
     // keyboard variable initialization
     wkey = skey = upkey = downkey = false;

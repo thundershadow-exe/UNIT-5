@@ -1,6 +1,6 @@
 void intro(){
  
-  background(#f4a261);
+  background(#30343f);
   
  
     // Title
