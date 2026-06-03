@@ -15,6 +15,9 @@ boolean wkey, skey, upkey, downkey;
 
 // radii variables
  float leftr, rightr, ballr;
+ 
+// scoring
+int leftscore, rightscore, timer;
 
 void setup(){
   size(800,800);

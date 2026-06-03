@@ -1,6 +1,20 @@
 void game(){
    background (#102b3f);
   
+  // center line
+  pushStyle();
+  strokeWeight(1);
+  stroke (255);
+  line (width/2, 0, width/2, height);
+  
+  //scoreboard
+  textSize(50);
+  fill(#efc3e6);
+  text(leftscore, width/4, 100);
+  fill (#9ceaef);
+  text(rightscore, 3*width/4, 100);
+
+  
   //paddles
   fill (#892b64);
   circle (leftx, lefty, leftd);
@@ -29,6 +43,13 @@ void game(){
   // move ball
   ballx = ballx + vx;
   bally = bally + vy;
+
+  //scoring
+  if(ballx < 0){
+    rightscore++;
+    ballx = width/2;
+    bally = height/2;
+  }
 
   // bounce off top/bottom
   if (bally < 0 || bally > height) {
