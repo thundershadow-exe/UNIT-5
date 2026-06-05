@@ -3,6 +3,11 @@ void game(){
   
   text("Score: " + score, width/2, 50);
   text("Lives: " + lives, width/2, 100);
+ 
+  // pause button
+  stroke (0);
+  fill (255);
+  circle (100, 100, 100);
   
   //display target
   circle(x, y, d);
@@ -25,6 +30,8 @@ void gameClicks(){
     score = score +1;
     click.rewind();
     click.play();
+  } else if (dist(mouseX, mouseY, 100, 100) < 50){
+    mode = PAUSE;
   } else {
     lives = lives -1;
     miss.rewind();
