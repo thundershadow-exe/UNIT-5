@@ -1,6 +1,6 @@
 void game(){
   background (#84a59d);
-  
+  textSize (40);
   text("Score: " + score, width/2, 50);
   text("Lives: " + lives, width/2, 100);
  
