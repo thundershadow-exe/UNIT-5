@@ -6,7 +6,8 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-
+// target option images
+PImage red, orange, yellow;
 
 // --- GLOBAL VARIABLES ---
 int mode;
@@ -14,6 +15,7 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int OPTIONS = 4;
 
 // --- TARGET VARIABLES ---
 float x, y, d;
@@ -39,9 +41,9 @@ void setup(){
     
   textAlign(CENTER, CENTER);
   
-  // minim (i'm so sorry to say this but the sound effect you gave us are erm... yeah. please don't deduct marks TwT)
+  // minim 
   minim = new Minim(this);
-  theme = minim.loadFile("theme.mp3"); // lol i apologise in advance for not having good music taste... XD judge me all you want but i do listen to funk all day
+  theme = minim.loadFile("theme.mp3");
   click = minim.loadFile("click.mp3");
   miss = minim.loadFile("miss.mp3");
   gameover = minim.loadFile("gameover.mp3");
@@ -52,6 +54,8 @@ void setup(){
 void draw(){
   if (mode == INTRO){
     intro();
+  } else if (mode == OPTIONS){
+    options(); 
   } else if (mode == GAME) {
     game();
   } else if (mode == PAUSE) {

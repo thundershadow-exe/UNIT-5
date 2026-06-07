@@ -3,25 +3,38 @@ void intro(){
  
   background(#f4a261);
   
-    // Title
+    // title
   fill(255);
   textSize(70);
-  text("PEPPER CLICKER", width/2, 200);
+  text("PEPPER CLICKER", width/2, 175);
+  textSize(30);
+  text ("ft. an AI version of my cat Dr. Pepper, M.D.", width/2, 225);
 
-  // Big Start Button
+  // START button
   fill(255);
-  rect(300, 500, 200, 100, 20);
-
-  // Button Text
+  rect(175, 600, 200, 100, 30);
   fill(0);
   textSize(40);
-  text("START", 400, 550);
- 
+  text("START", 275, 650);
+
+  // OPTIONS button
+  fill (255);
+  rect(425, 600, 200, 100, 30);
+  fill(0);
+  text("OPTIONS", 525, 650);
 }
 
 void introClicks(){
-  if (mouseX > 300 && mouseX <500 && 
-      mouseY > 500 && mouseY < 600) {
-  mode = GAME;
+
+  // START button
+  if (mouseX > 175 && mouseX < 375 &&
+      mouseY > 600 && mouseY < 700) {
+    mode = GAME;
+  }
+
+  // OPTIONS button
+  if (mouseX > 425 && mouseX < 625 &&
+      mouseY > 600 && mouseY < 700) {
+    mode = OPTIONS;
   }
 }
