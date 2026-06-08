@@ -7,7 +7,17 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 // target option images
+PImage selectedTarget;
 PImage red, orange, yellow;
+
+// slider variables
+float targetSize = 100;
+float sliderX = 200;
+float sliderY = 650;
+float sliderW = 400;
+float sliderH = 10;
+float knobX = sliderX + sliderW/2;
+boolean knobDragging = false;
 
 // --- GLOBAL VARIABLES ---
 int mode;
@@ -26,16 +36,24 @@ int score, lives;
 Minim minim;
 AudioPlayer theme, click, miss, gameover;
 
+// --- SETUP ---
 void setup(){
   size(800,800);
   mode = INTRO;
   
     //target initialization
+    selectedTarget = red;
     x = width/2;
     y = height/2;
     d = 100;
     vx = random (-7, 7);
     vy = random (-7, 7);
+    // target options
+    red = loadImage("red.png");
+    orange = loadImage("orange.png");
+    yellow = loadImage("yellow.png");
+    selectedTarget = red;   // default
+
     score = 0;
     lives = 3;
     

@@ -10,7 +10,10 @@ void game(){
   circle (100, 100, 100);
   
   //display target
-  circle(x, y, d);
+  imageMode(CENTER);
+  image(selectedTarget, x, y, targetSize, targetSize);
+  imageMode(CORNER);
+
   
   //moving
   x = x + vx;

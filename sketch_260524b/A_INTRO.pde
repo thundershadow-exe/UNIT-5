@@ -22,6 +22,12 @@ void intro(){
   rect(425, 600, 200, 100, 30);
   fill(0);
   text("OPTIONS", 525, 650);
+  
+    //display target
+  imageMode(CENTER);
+  image(selectedTarget, x, y, 300, 300);
+  imageMode(CORNER);
+  
 }
 
 void introClicks(){
