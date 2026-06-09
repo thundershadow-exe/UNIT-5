@@ -20,16 +20,16 @@ void game(){
   y = y + vy;
   
   // bouncing
-  if (x < 0 + d/2 || x > width - d/2) {
+  if (x < 0 + targetSize/2 || x > width - targetSize/2) {
     vx = vx * -1;
   }
-    if (y < 0 + d/2 || y > height - d/2) {
+    if (y < 0 + targetSize/2 || y > height - targetSize/2) {
     vy = vy * -1;
   }
 }
 
 void gameClicks(){
-  if (dist(mouseX, mouseY, x, y) < 100){
+  if (dist(mouseX, mouseY, x, y) < targetSize/2){
     score = score +1;
     click.rewind();
     click.play();

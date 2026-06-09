@@ -28,7 +28,7 @@ final int GAMEOVER = 3;
 final int OPTIONS = 4;
 
 // --- TARGET VARIABLES ---
-float x, y, d;
+float x, y;
 float vx, vy;    // target velocity
 int score, lives;
 
@@ -45,7 +45,6 @@ void setup(){
     selectedTarget = red;
     x = width/2;
     y = height/2;
-    d = 100;
     vx = random (-7, 7);
     vy = random (-7, 7);
     // target options
