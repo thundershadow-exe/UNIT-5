@@ -2,8 +2,8 @@ void options(){
   background(#264653);
 
   fill(255);
-  textSize(60);
-  text("OPTIONS", width/2, 100);
+  textSize(70);
+  text("^ OPTIONS   ", width/2, 100);
   textSize(40);
   text("Target Color", width/2, 180);
 
@@ -31,7 +31,7 @@ void options(){
   rect(width/2 - 100, 700, 200, 80, 20);
   fill(0);
   textSize(35);
-  text("BACK", width/2, 740);
+  text("BACK ^", width/2, 740);
 }
 
 void optionsClicks(){

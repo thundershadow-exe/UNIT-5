@@ -10,6 +10,10 @@ import ddf.minim.ugens.*;
 PImage selectedTarget;
 PImage red, orange, yellow;
 
+// fonts
+PFont cattieFont;
+PFont brushFont;
+
 // slider variables
 float targetSize = 100;
 float sliderX = 200;
@@ -41,22 +45,28 @@ void setup(){
   size(800,800);
   mode = INTRO;
   
-    //target initialization
-    selectedTarget = red;
-    x = width/2;
-    y = height/2;
-    vx = random (-7, 7);
-    vy = random (-7, 7);
+   //target initialization
+  selectedTarget = red;
+  x = width/2;
+  y = height/2;
+  vx = random (-7, 7);
+  vy = random (-7, 7);
     // target options
     red = loadImage("red.png");
     orange = loadImage("orange.png");
     yellow = loadImage("yellow.png");
     selectedTarget = red;   // default
+    
+  
+    // fonts
+    cattieFont = createFont("cattie.ttf", 70);
+    brushFont = createFont ("brush.ttf", 30);
+    textAlign(CENTER, CENTER);
 
+  
     score = 0;
     lives = 3;
     
-  textAlign(CENTER, CENTER);
   
   // minim 
   minim = new Minim(this);

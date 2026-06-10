@@ -5,8 +5,10 @@ void intro(){
   
     // title
   fill(255);
-  textSize(70);
-  text("PEPPER CLICKER", width/2, 175);
+  textFont (cattieFont);
+  textSize(95);
+  text("PEPPER CLICKER", width/2, 155);
+  textFont (brushFont);
   textSize(30);
   text ("ft. an AI version of my cat Dr. Pepper, M.D.", width/2, 225);
 
@@ -14,14 +16,14 @@ void intro(){
   fill(255);
   rect(175, 600, 200, 100, 30);
   fill(0);
-  textSize(40);
-  text("START", 275, 650);
+  textSize(30);
+  text("START ^", 275, 650);
 
   // OPTIONS button
   fill (255);
   rect(425, 600, 200, 100, 30);
   fill(0);
-  text("OPTIONS", 525, 650);
+  text("OPTIONS ^", 525, 650);
   
     //display target
   imageMode(CENTER);

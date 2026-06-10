@@ -30,6 +30,8 @@ void game(){
 
 void gameClicks(){
   if (dist(mouseX, mouseY, x, y) < targetSize/2){
+    vx = vx * 1.1;
+    vy = vy * 1.1;
     score = score +1;
     click.rewind();
     click.play();
@@ -37,6 +39,8 @@ void gameClicks(){
     mode = PAUSE;
   } else {
     lives = lives -1;
+    fill(255, 0, 0, 150); // flash when lose a life
+    rect(0, 0, width, height);
     miss.rewind();
     miss.play();
     if (lives == 0) mode = GAMEOVER;
