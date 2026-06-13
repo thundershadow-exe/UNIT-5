@@ -6,6 +6,9 @@ void mousePressed() {
   } else if (mode == PAUSE) {
     mode = GAME;
   } else if (mode == GAMEOVER) {
+     resetGame();
+    introMusic.rewind();
+    introMusic.loop();
     mode = INTRO;
   }
 }
