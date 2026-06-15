@@ -28,6 +28,17 @@ void game(){
   }
 }
 
+void resetGame() {
+  score = 0;
+  lives = 3;
+
+  x = width/2;
+  y = height/2;
+  vx = random(-7, 7);
+  vy = random(-7, 7);
+}
+
+
 void gameClicks(){
   if (dist(mouseX, mouseY, x, y) < targetSize/2){
     vx = vx * 1.1;

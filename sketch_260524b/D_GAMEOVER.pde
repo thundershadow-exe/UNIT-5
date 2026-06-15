@@ -6,6 +6,10 @@ void gameOver(){
   gameover.play();
 }
 
-void gameoverClicks(){
+
+void gameoverClicks() {
+  resetGame();
   mode = INTRO;
+  theme.rewind();
+  theme.play();
 }
