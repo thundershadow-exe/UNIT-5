@@ -2,16 +2,21 @@ void intro() {
   background(#30343f);
 
   // title
+  fill(255);
+  textFont (glitchFont);
+  textSize(170);
+  text("PONG", width / 1.97, 205);
   fill(#f72585);
-  textSize(100);
   text("PONG", width / 2, 200);
-  fill(200);
+  fill(255);
   textSize(24);
   text("Choose a game mode", width / 2, 310);
 
   // 1 player button
   // button box: x 90 to 310, y 460 to 540
   if (mouseX > 90 && mouseX < 310 && mouseY > 460 && mouseY < 540) {
+    strokeWeight (3);
+    stroke (#4cc9f0);
     fill(#f72585);
   } else {
     fill(255);
@@ -29,6 +34,9 @@ void intro() {
   // 2 player button
   // button box: x 490 to 710, y 460 to 540
   if (mouseX > 490 && mouseX < 710 && mouseY > 460 && mouseY < 540) {
+    strokeWeight (3);
+    stroke (#ffd500);
+    fill(#f72585);
     fill(#f72585);
   } else {
     fill(255);

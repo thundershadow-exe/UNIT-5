@@ -1,11 +1,11 @@
 void gameover() {
-  background(#102b3f);
+  background(#30343f);
 
   // show final scores at the top
   textSize(60);
-  fill(#efc3e6);
+  fill(#a1e3f7);
   text(leftscore, width / 4, 100);
-  fill(#9ceaef);
+  fill(#ffff00);
   text(rightscore, 3 * width / 4, 100);
 
   // winner message
@@ -13,21 +13,25 @@ void gameover() {
   textSize(90);
 
   if (leftscore >= 3) {
+    fill(#a1e3f7);
     text("LEFT", width / 2, height / 2 - 80);
     text("WINS!", width / 2, height / 2 + 20);
   } else {
+    fill(#ffff00);
     text("RIGHT", width / 2, height / 2 - 80);
     text("WINS!", width / 2, height / 2 + 20);
   }
 
   // click to play again prompt
-  fill(200);
+  fill(#f72585);
   textSize(26);
   text("Click anywhere to play again", width / 2, height / 2 + 140);
 }
 
 void gameoverClicks() {
-  // reset everything and go back to intro screen
+  playedEndSound = false;
   resetGame();
+  introMusic.rewind();
+  introMusic.loop();
   mode = INTRO;
 }

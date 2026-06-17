@@ -7,7 +7,7 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 // fonts
-PFont titleFont;
+PFont glitchFont;
 
 // --- GLOBAL VARIABLES ---
 int mode;
@@ -15,6 +15,16 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+
+// sound
+Minim minim;
+AudioPlayer introMusic;
+AudioPlayer endSound;
+AudioPlayer missSound;
+AudioPlayer bounceSound;
+
+boolean playedEndSound = false;
+
 
 // true = 2 human players, false = 1 player vs AI
 boolean twoPlayer;
@@ -36,6 +46,18 @@ void setup() {
   textAlign(CENTER, CENTER);
   resetGame();
   mode = INTRO;
+  
+  // load sounds
+  minim = new Minim(this);
+  introMusic   = minim.loadFile("MUSIC.mp3");
+  endSound = minim.loadFile("END.mp3");
+  missSound = minim.loadFile("MISS.mp3");
+  bounceSound = minim.loadFile("BOUNCE.mp3");
+  
+  // load fonts
+  glitchFont = createFont ("glitch.ttf", 70);
+  
+    introMusic.loop();
 }
 
 // called at the very start and when returning to intro from gameover
@@ -86,6 +108,12 @@ void draw() {
   } else if (mode == PAUSE) {
     pause();
   } else if (mode == GAMEOVER) {
+    introMusic.pause();
+    if (!playedEndSound) {
+      endSound.rewind();
+      endSound.play();
+      playedEndSound = true;
+    }
     gameover();
   }
 }

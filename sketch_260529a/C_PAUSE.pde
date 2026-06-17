@@ -7,16 +7,16 @@ void pause() {
   noStroke();
 
   textSize(60);
-  fill(#efc3e6);
+  fill(#2a6a8a);
   text(leftscore, width / 4, 100);
-  fill(#9ceaef);
+  fill(#7a6a00);
   text(rightscore, 3 * width / 4, 100);
 
-  fill(#892b64);
+  fill(#155a78);
   circle(leftx, lefty, leftd);
-  fill(#2e6f95);
+  fill(#7a5f00);
   circle(rightx, righty, rightd);
-  fill(#c9b1ff);
+  fill(#6a1a47);
   circle(ballx, bally, balld);
 
   // paused overlay
