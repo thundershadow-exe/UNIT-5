@@ -1,3 +1,14 @@
+// import minim
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+// fonts
+PFont titleFont;
+
 // --- GLOBAL VARIABLES ---
 int mode;
 final int INTRO = 0;
@@ -5,55 +16,76 @@ final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
 
-// --- ENTITY VARIABLES ---
-float leftx, lefty, leftd, rightx, righty, rightd; // paddles
-float ballx, bally, balld; // ball
+// true = 2 human players, false = 1 player vs AI
+boolean twoPlayer;
+
+// entity variables
+float leftx, lefty, leftd;
+float rightx, righty, rightd;
+float ballx, bally, balld;
 float vx, vy;
 
 // keyboard variables
 boolean wkey, skey, upkey, downkey;
 
-// radii variables
- float leftr, rightr, ballr;
- 
 // scoring
-int leftscore, rightscore, timer;
+int leftscore, rightscore, timer; 
 
-void setup(){
-  size(800,800);
-  mode = INTRO;
+void setup() {
+  size(800, 800);
   textAlign(CENTER, CENTER);
-  
-    //paddle initialization
-    leftx = 0;
-    lefty = height/2;
-    leftd = 200;
-    rightx = width;
-    righty = height/2;
-    rightd = 200;
-    
-    // ball initialization
-    ballx = width/2;
-    bally = height/2;
-    balld = 100;
-    vx = 5;
-    vy = 3;
-    
-    // keyboard variable initialization
-    wkey = skey = upkey = downkey = false;
+  resetGame();
+  mode = INTRO;
 }
 
-void draw(){
-  if (mode == INTRO){
+// called at the very start and when returning to intro from gameover
+void resetGame() {
+  //paddle initialization
+  leftx = 0;
+  lefty = height / 2;
+  leftd = 200;
+  rightx = width;
+  righty = height / 2;
+  rightd = 200;
+
+  // ball initialization
+  ballx = width / 2;
+  bally = height / 2;
+  balld = 80;
+  vx = 5;
+  vy = 3;
+
+  // reset scores
+  leftscore = 0;
+  rightscore = 0;
+  timer = 0;
+
+  // keyboard variable initialization
+  wkey = skey = upkey = downkey = false;
+}
+
+// puts ball back in middle and waits
+void resetBall() {
+  ballx = width / 2;
+  bally = height / 2;
+  // alternate ball direction using frame count (even = right, odd = left)
+  if (frameCount % 2 == 0) {
+    vx = 5;
+  } else {
+    vx = -5;
+  }
+  vy = 3;
+  timer = 0;
+}
+
+void draw() {
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
     game();
   } else if (mode == PAUSE) {
     pause();
-  } else if (mode == GAMEOVER){
+  } else if (mode == GAMEOVER) {
     gameover();
-  } else {
-    println("Error: Mode = " + mode);
   }
-  
 }
