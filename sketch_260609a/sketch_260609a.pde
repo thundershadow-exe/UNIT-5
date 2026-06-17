@@ -22,8 +22,18 @@ Minim minim;
 AudioPlayer introMusic;
 AudioPlayer successSound;
 AudioPlayer failureSound;
+AudioPlayer missSound;
+AudioPlayer bounceSound;
+AudioPlayer popSound;
 
+  boolean playedEndSound = false;
+
+// gif
 Gif introGif;
+
+// fonts
+PFont bubbleFont;
+
 
 // ball
 float ballX, ballY;
@@ -68,12 +78,16 @@ void setup() {
   minim = new Minim(this);
   introMusic   = minim.loadFile("MUSIC.mp3");
   successSound = minim.loadFile("SUCCESS.mp3");
-  failureSound = minim.loadFile("FAILURE.wav"); // don't have yet
-  // find bounce paddle sound
+  failureSound = minim.loadFile("FAILURE.mp3");
+  missSound = minim.loadFile("MISS.mp3");
+  bounceSound = minim.loadFile("BOUNCE.mp3");
+  popSound = minim.loadFile ("POP.mp3");
   
+  
+  // load fonts
+  bubbleFont = createFont ("bubble.ttf", 70);
   
   introMusic.loop();
-  
   resetGame();
 }
 

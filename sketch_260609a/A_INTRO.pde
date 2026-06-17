@@ -11,7 +11,8 @@ image(introGif,
   rect(0, 0, width, height);
 
   // Title
-  fill(255, 230, 50);
+  fill(frameCount*5, frameCount*10, frameCount*15);
+  textFont (bubbleFont);
   textSize(70);
   text("BREAKOUT", width/2, height/2 - 60);
 
@@ -24,6 +25,7 @@ image(introGif,
   fill(180, 180, 255);
   textSize(20);
   text("Use mouse to control the paddle", width/2, height/2 + 60);
+  
 }
 
 void introMousePressed() {
