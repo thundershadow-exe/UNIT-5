@@ -35,6 +35,7 @@ final int OPTIONS = 4;
 float x, y;
 float vx, vy;    // target velocity
 int score, lives;
+int highScore = 0;
 
 // --- SOUND VARIABLES ---
 Minim minim;
@@ -88,6 +89,8 @@ void draw(){
   } else if (mode == PAUSE) {
     pause();
   } else if (mode == GAMEOVER){
+    theme.pause();
+    gameover.play();
     gameOver();
   } else {
     println("Error: Mode = " + mode);

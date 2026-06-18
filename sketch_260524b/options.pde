@@ -18,8 +18,16 @@ void options(){
   fill(200);
   rect(sliderX, sliderY, sliderW, sliderH, 5);
   fill(255);
+  
+    if (dist(mouseX, mouseY, knobX, sliderY + sliderH/2) < 20) {
+    strokeWeight(3);
+    stroke(#00afb9);
+    fill(#a8d7d1);
+  } else {
+    noStroke();
+    fill(255);
+  }
   ellipse(knobX, sliderY + sliderH/2, 30, 30);
-
 
   // preview
   imageMode(CENTER);
@@ -27,11 +35,20 @@ void options(){
   imageMode(CORNER);
 
   // back button
-  fill(255);
+if (mouseX > width/2 - 100 && mouseX < width/2 + 100 &&
+      mouseY > 700 && mouseY < 780) {
+    strokeWeight(3);
+    stroke(255);
+    fill(#55b1a5);
+  } else {
+    noStroke();
+    fill(255);
+  }
   rect(width/2 - 100, 700, 200, 80, 20);
   fill(0);
   textSize(35);
   text("BACK ^", width/2, 740);
+  noStroke();
 }
 
 void optionsClicks(){

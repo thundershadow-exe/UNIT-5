@@ -6,8 +6,12 @@ void game(){
  
   // pause button
   stroke (0);
-  fill (255);
+  fill (#e9c46a);
   circle (100, 100, 100);
+  fill(0);
+  textFont (brushFont);
+  textSize(70);
+  text("| |", 100, 100);
   
   //display target
   imageMode(CENTER);
@@ -29,6 +33,9 @@ void game(){
 }
 
 void resetGame() {
+  gameover.rewind();
+  gameover.pause();
+  
   score = 0;
   lives = 3;
 
@@ -54,6 +61,12 @@ void gameClicks(){
     rect(0, 0, width, height);
     miss.rewind();
     miss.play();
-    if (lives == 0) mode = GAMEOVER;
+    if (lives == 0) {
+  if (score > highScore) {
+    highScore = score;
+  }
+  mode = GAMEOVER;
+}
+
   }
 }
